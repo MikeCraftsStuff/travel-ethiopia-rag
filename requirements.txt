@@ -1,11 +1,6 @@
+streamlit
 langchain==0.1.153
-openai
-faiss-cpu
-streamlit
-python-dotenv
-flask
-tiktoken
-streamlit
 sentence-transformers
-faiss-cpu
 huggingface-hub
+python-dotenv
+tiktoken
