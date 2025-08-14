@@ -1,32 +1,41 @@
-from dotenv import load_dotenv
-import os
-
-load_dotenv()  # Load variables from .env file
-
-from flask import Flask, render_template, request
+# main.py
+import streamlit as st
 from modules.ingestion import load_documents
 from modules.embeddings import create_embeddings
-from modules.retrieval import retrieve_relevant_chunks
-from modules.generator import generate_answer
+from langchain.chains import RetrievalQA
+from langchain.llms import HuggingFaceHub
 
-app = Flask(__name__)
+# --- Load Documents ---
+st.title("Travel Ethiopia RAG Chatbot")
+st.write("Ask questions about Ethiopia!")
 
-# Load and index documents at startup
+# Make sure your documents are in the 'documents/' folder
 documents = load_documents("documents/")
-embeddings_index = create_embeddings(documents)
 
-@app.route("/", methods=["GET", "POST"])
-def home():
-    answer = None
-    if request.method == "POST":
-        query = request.form.get("query")
-        relevant_chunks = retrieve_relevant_chunks(query, embeddings_index)
-        answer = generate_answer(query, relevant_chunks)
-    return render_template("index.html", answer=answer)
+# --- Create Embeddings and Vector Store ---
+vector_store = create_embeddings(documents)
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=3000)
+# --- Setup Retriever ---
+retriever = vector_store.as_retriever(search_kwargs={"k": 3})  # return top 3 relevant chunks
 
+# --- Setup LLM ---
+# Using HuggingFace model (local/free)
+llm = HuggingFaceHub(
+    repo_id="google/flan-t5-small",  # you can switch to any model you like
+    model_kwargs={"temperature": 0}
+)
 
+qa_chain = RetrievalQA.from_chain_type(
+    llm=llm,
+    chain_type="stuff",
+    retriever=retriever,
+    return_source_documents=True
+)
 
-print("OpenAI Key:", os.getenv("OPENAI_API_KEY"))
+# --- Streamlit User Interface ---
+user_question = st.text_input("Your Question:")
+
+if user_question:
+    response = qa_chain.run(user_question)
+    st.write("**Answer:**")
+    st.write(response)
