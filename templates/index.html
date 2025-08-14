@@ -1,1 +1,21 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Travel Ethiopia RAG Chatbot</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Travel Ethiopia RAG Chatbot</h1>
+    <form method="POST">
+        <input type="text" name="query" placeholder="Ask a question..." required>
+        <button type="submit">Ask</button>
+    </form>
+    {% if answer %}
+        <h2>Answer:</h2>
+        <p>{{ answer }}</p>
+    {% endif %}
+    <script src="/static/script.js"></script>
+</body>
+</html>
