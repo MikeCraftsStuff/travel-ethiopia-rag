@@ -1,4 +1,4 @@
-from langchain.document_loaders import TextLoader
+from langchain.document_loaders.text import TextLoader
 
 def load_documents(folder_path):
     # TODO: Add PDF, web, or other loaders if needed
