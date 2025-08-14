@@ -5,3 +5,8 @@ streamlit
 python-dotenv
 flask
 tiktoken
+langchain>=0.1.0
+streamlit
+sentence-transformers
+faiss-cpu
+huggingface-hub
