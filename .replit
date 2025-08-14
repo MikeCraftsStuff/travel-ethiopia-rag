@@ -1,0 +1,13 @@
+modules = ["python-3.12", "web", "nodejs-20"]
+run = "streamlit run main.py"
+
+[nix]
+channel = "stable-25_05"
+packages = ["bash", "cargo", "libiconv", "rustc"]
+
+[deployment]
+run = ["sh", "-c", "streamlit run main.py"]
+
+[[ports]]
+localPort = 8501
+externalPort = 80

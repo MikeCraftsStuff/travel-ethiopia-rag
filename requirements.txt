@@ -3,3 +3,5 @@ openai
 faiss-cpu
 streamlit
 python-dotenv
+flask
+tiktoken

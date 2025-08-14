@@ -1,3 +1,8 @@
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # Load variables from .env file
+
 from flask import Flask, render_template, request
 from modules.ingestion import load_documents
 from modules.embeddings import create_embeddings
@@ -21,3 +26,7 @@ def home():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=3000)
+
+
+
+print("OpenAI Key:", os.getenv("OPENAI_API_KEY"))
