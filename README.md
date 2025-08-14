@@ -22,22 +22,23 @@ This project demonstrates a Naive RAG system:
   ## 📂 Project Structure
 
 
-## ⚡ Setup Instructions
+travel-ethiopia-rag/ ├─ main.py                  # Streamlit app entry point ├─ requirements.txt         # Python dependencies ├─ README.md                # Project documentation ├─ .gitignore               # Ignore env and cache ├─ documents/               # Text files for RAG │   └─ sample.txt └─ modules/ ├─ ingestion.py         # Document loading 
 
-1. Clone the repo:
+⚡ Setup Instructions
+
+1. **Clone the repo**
 ```bash
 git clone https://github.com/MikeCraftsStuff/travel-ethiopia-rag.git
 cd travel-ethiopia-rag
 pip install -r requirements.txt
-streamlit run main.py
+ Run the Streamlit app
 
-
-  ---
+```
 
 ## **Step 6: Example Queries**
 - Give users sample questions they can try.
 
-```markdown
+
 ## 💡 Example Queries
 
 - “What are the top tourist destinations in Ethiopia?”  
@@ -51,11 +52,7 @@ streamlit run main.py
 - Currently supports text files; PDF or web scraping can be added.
 
 
-## 🌐 Live Demo
-
-*(Optional: Add your Streamlit Cloud or HuggingFace Spaces link here)*  
-
-## 📜 License
+ ## 📜 License
 
 MIT License – free to use and modify.
 
