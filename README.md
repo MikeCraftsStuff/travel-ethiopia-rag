@@ -1,4 +1,4 @@
-Addis.jpg
+Addis A.jpg
 
 # 🌍 Travel Ethiopia RAG Chatbot
 
