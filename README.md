@@ -1,4 +1,4 @@
-Addis A.jpg
+![Addis A](Addis%20A.jpg)
 
 # 🌍 Travel Ethiopia RAG Chatbot
 
