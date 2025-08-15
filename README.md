@@ -1,3 +1,5 @@
+Addis.jpg
+
 # 🌍 Travel Ethiopia RAG Chatbot
 
 Welcome to the Travel Ethiopia RAG Chatbot, an AI assistant that answers questions about Ethiopia using a Retrieval-Augmented Generation (RAG) system.
